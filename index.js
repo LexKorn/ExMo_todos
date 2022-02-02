@@ -24,17 +24,25 @@ app.use(todoRoutes)
 async function start() {
   try {
     await mongoose.connect(
-      'mongodb+srv://lexkorn:1q2w3e4r@cluster0.xm1u3.mongodb.net/todos',
+      'mongodb+srv://lexkorn:1q2w3e4r@cluster0.xm1u3.mongodb.net/todos',      
       {
         useNewUrlParser: true,
         useFindAndModify: false
       }
-    )
+    );
+    // await mongoose.connect(
+    //   'mongodb+srv://lexkorn:1q2w3e4r@cluster0.xm1u3.mongodb.net/vacancy',
+    //   {
+    //     useNewUrlParser: true,
+    //     useFindAndModify: false
+    //   }
+    // );
+
     app.listen(PORT, () => {
       console.log('Server has been started...')
-    })
-  } catch (e) {
-    console.log(e)
+    });
+  } catch (err) {
+    console.log(err);
   }
 }
 

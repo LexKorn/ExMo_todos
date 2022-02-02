@@ -1,6 +1,7 @@
-const { Router } = require('express')
-const Todo = require('../models/Todo')
-const router = Router()
+const { Router } = require('express');
+const Todo = require('../models/Todo');
+const Vacancy = require('../models/vacancy')
+const router = Router();
 
 router.get('/', async (req, res) => {
   const todos = await Todo.find({})
@@ -36,5 +37,43 @@ router.post('/complete', async (req, res) => {
 
   res.redirect('/')
 })
+
+
+
+// router.get('/vacancy', (req, res) => {
+//   res.render('vacancy', {
+//     title: 'Vacancy',
+//     isVacancy: true
+//   });
+// });
+
+router.get('/vacancy', async (req, res) => {
+  const vacancys = await Vacancy.find({});
+
+  res.render('vacancy', {
+    title: 'Vacancy',
+    isVacancy: true,
+    vacancys
+  });
+});
+
+
+router.get('/addvacancy', (req, res) => {
+  res.render('addvacancy', {
+    title: 'Add vacancy',
+    isAddVacancy: true
+  });
+});
+
+router.post('/addvacancy', async (req, res) => {
+  const todo = new Vacancy({
+    title: req.body.title,
+    description: req.body.description
+  })
+
+  await todo.save()
+  res.redirect('/vacancy')
+})
+
 
 module.exports = router
