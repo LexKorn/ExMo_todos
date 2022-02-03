@@ -19,3 +19,21 @@
 .todo i {
   z-index: 2;
 }
+
+
+
+.vacancy {
+  margin-bottom: 1rem;
+  /* border: 1px solid red; */
+}
+
+.vacancy label {
+  width: 100%;
+  padding: 1rem;
+  /* border: 2px dashed green; */
+}
+
+.vacancy label p {
+  font-size: 16px;
+  text-align: justify;
+}

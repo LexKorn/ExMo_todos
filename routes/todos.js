@@ -40,13 +40,6 @@ router.post('/complete', async (req, res) => {
 
 
 
-// router.get('/vacancy', (req, res) => {
-//   res.render('vacancy', {
-//     title: 'Vacancy',
-//     isVacancy: true
-//   });
-// });
-
 router.get('/vacancy', async (req, res) => {
   const vacancys = await Vacancy.find({});
 
