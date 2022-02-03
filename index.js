@@ -24,7 +24,7 @@ app.use(todoRoutes)
 async function start() {
   try {
     await mongoose.connect(
-      'mongodb://lexkorn:1q2w3e4r@cluster0.xm1u3.mongodb.net/todos',      
+      'mongodb+srv://lexkorn:1q2w3e4r@cluster0.xm1u3.mongodb.net/todos?retryWrites=true&w=majority',      
       {
         useNewUrlParser: true,
         useFindAndModify: false
